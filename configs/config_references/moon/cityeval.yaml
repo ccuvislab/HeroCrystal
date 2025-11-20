@@ -1,0 +1,35 @@
+_BASE_: "../Guassian-RCNN-VGG.yaml"
+MODEL:
+  ROI_HEADS:
+    NUM_CLASSES: 8 
+  WEIGHTS: "output/FedAvg_skf2c_multiclass_test/VOC2007_sim1_2/model_final.pth"
+DATALOADER:
+  NUM_WORKERS: 2
+DATASETS:
+  TEST: ("VOC2007_cityval1",)
+UNSUPNET:
+  # Trainer: "sourceonly"
+  Trainer: "moon"
+  TEACHER_UPDATE_ITER: 1
+  BURN_UP_STEP: 0
+  EMA_KEEP_RATE: 0.9996
+  SOURCE_LOSS_WEIGHT: 1.0
+  TARGET_UNSUP_LOSS_WEIGHT: 1.0
+  GUASSIAN: True
+  EFL: True
+  EFL_LAMBDA: [0.5,0.5]
+  TAU: [0.25,0.25]
+MOON:
+  CONTRASTIVE_Lcon_Enable: True
+  CONTRASTIVE_MU: 0.5
+  CONTRASTIVE_T: 0.5
+  WANDB_Enable: True
+  WANDB_Project_Name: "FedMA_mclass_0331_ck2b"
+TEST:
+  EVAL_PERIOD: 400
+  EVALUATOR: "VOCeval"
+INPUT:
+  MIN_SIZE_TRAIN: (600, )
+  MIN_SIZE_TEST: 600
+  RANDOM_FLIP: "horizontal"
+OUTPUT_DIR: "./output/s2c_sourceonly_city_eval/"

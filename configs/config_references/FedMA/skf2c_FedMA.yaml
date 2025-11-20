@@ -1,0 +1,48 @@
+_BASE_: "../Guassian-RCNN-VGG.yaml"
+MODEL:
+  BACKBONE:
+    NAME: "build_vgg_backbone_dynamic"
+  ROI_HEADS:
+    NUM_CLASSES: 1 
+  TEACHER_TRAINER: "pt"
+  TEACHER_PATH: ('keep_experiments/s2c_source-only/model_0023999.pth','keep_experiments/k2b_source-only/model_0027999.pth','keep_experiments/f2c_source-only/model_final.pth')
+FEDSET:
+  THREAD: False
+  DYNAMIC: True
+  ROUND: 0
+  DATASET_LIST: ("VOC2007_sim1","VOC2007_kitti1","VOC2007_foggytrain1")  
+SOLVER:
+  LR_SCHEDULER_NAME: "WarmupMultiStepLR"
+  STEPS: (4000,)
+  MAX_ITER: 4000
+  IMG_PER_BATCH_LABEL: 16
+  IMG_PER_BATCH_UNLABEL: 16
+  BASE_LR: 0.016
+  WARMUP_ITERS: 0
+  CHECKPOINT_PERIOD: 800
+  REFERENCE_BATCH_SIZE: 16
+DATALOADER:
+  NUM_WORKERS: 2
+DATASETS:
+  TRAIN_LABEL: ("VOC2007_foggytrain1",)
+  CROSS_DATASET: True
+  TEST: ("VOC2007_cityval1",)
+UNSUPNET:
+  Trainer: "sourceonly"
+  TEACHER_UPDATE_ITER: 1
+  BURN_UP_STEP: 0
+  EMA_KEEP_RATE: 0.9996
+  SOURCE_LOSS_WEIGHT: 1.0
+  TARGET_UNSUP_LOSS_WEIGHT: 1.0
+  GUASSIAN: True
+  EFL: True
+  EFL_LAMBDA: [0.5,0.5]
+  TAU: [0.25,0.25]
+TEST:
+  EVAL_PERIOD: 400
+  EVALUATOR: "VOCeval"
+INPUT:
+  MIN_SIZE_TRAIN: (600, )
+  MIN_SIZE_TEST: 600
+  RANDOM_FLIP: "horizontal"
+OUTPUT_DIR: "./output/FedMA_skf2c_source-only/"

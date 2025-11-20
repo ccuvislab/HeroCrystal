@@ -1,0 +1,60 @@
+# packages in environment at /home/superorange5/.conda/envs/detectron2:
+#
+# Name                    Version                   Build  Channel
+_libgcc_mutex             0.1                 conda_forge    conda-forge
+_openmp_mutex             4.5                       2_gnu    conda-forge
+blas                      1.0                         mkl  
+ca-certificates           2022.9.24            ha878542_0    conda-forge
+certifi                   2022.9.24          pyhd8ed1ab_0    conda-forge
+cffi                      1.15.1           py37h43b0acd_0    conda-forge
+cudatoolkit               11.1.1              ha002fc5_10    conda-forge
+cudnn                     8.4.1.50             hed8a83a_0    conda-forge
+freetype                  2.12.1               hca18f0e_0    conda-forge
+intel-openmp              2022.1.0          h9e868ea_3769  
+jpeg                      9e                   h166bdaf_2    conda-forge
+lcms2                     2.12                 hddcbb42_0    conda-forge
+ld_impl_linux-64          2.36.1               hea4e1c9_2    conda-forge
+lerc                      3.0                  h9c3ff4c_0    conda-forge
+libblas                   3.9.0            16_linux64_mkl    conda-forge
+libcblas                  3.9.0            16_linux64_mkl    conda-forge
+libdeflate                1.10                 h7f98852_0    conda-forge
+libffi                    3.4.2                h7f98852_5    conda-forge
+libgcc-ng                 12.1.0              h8d9b700_16    conda-forge
+libgomp                   12.1.0              h8d9b700_16    conda-forge
+liblapack                 3.9.0            16_linux64_mkl    conda-forge
+libnsl                    2.0.0                h7f98852_0    conda-forge
+libpng                    1.6.38               h753d276_0    conda-forge
+libprotobuf               3.21.7               h6239696_0    conda-forge
+libsqlite                 3.39.4               h753d276_0    conda-forge
+libstdcxx-ng              12.1.0              ha89aaad_16    conda-forge
+libtiff                   4.3.0                h0fcbabc_4    conda-forge
+libuv                     1.44.2               h166bdaf_0    conda-forge
+libwebp-base              1.2.4                h166bdaf_0    conda-forge
+libzlib                   1.2.12               h166bdaf_4    conda-forge
+magma                     2.5.4                ha9b7cf9_2    conda-forge
+mkl                       2022.1.0           hc2b9512_224  
+nccl                      2.14.3.1             h12f7317_0    conda-forge
+ncurses                   6.3                  h27087fc_1    conda-forge
+ninja                     1.11.0               h924138e_0    conda-forge
+numpy                     1.21.6           py37h976b520_0    conda-forge
+olefile                   0.46               pyh9f0ad1d_1    conda-forge
+openjpeg                  2.5.0                h7d73246_0    conda-forge
+openssl                   3.0.5                h166bdaf_2    conda-forge
+pillow                    8.4.0            py37h0f21c89_0    conda-forge
+pip                       21.2.4             pyhd8ed1ab_0    conda-forge
+pycparser                 2.21               pyhd8ed1ab_0    conda-forge
+python                    3.7.12          hf930737_100_cpython    conda-forge
+python_abi                3.7                     2_cp37m    conda-forge
+pytorch                   1.12.1          cuda111py37he43340c_201    conda-forge
+readline                  8.1.2                h0f457ee_0    conda-forge
+setuptools                65.4.1             pyhd8ed1ab_0    conda-forge
+six                       1.16.0             pyh6c4a22f_0    conda-forge
+sleef                     3.5.1                h9b69904_2    conda-forge
+sqlite                    3.39.4               h4ff8645_0    conda-forge
+tk                        8.6.12               h27826a3_0    conda-forge
+torchvision               0.2.2                      py_3    pytorch
+typing_extensions         3.10.0.2           pyha770c72_0    conda-forge
+wheel                     0.37.1             pyhd8ed1ab_0    conda-forge
+xz                        5.2.6                h166bdaf_0    conda-forge
+zlib                      1.2.12               h166bdaf_4    conda-forge
+zstd                      1.5.2                h6239696_4    conda-forge

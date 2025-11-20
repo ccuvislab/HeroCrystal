@@ -1,0 +1,22 @@
+_BASE_: "../Guassian-RCNN-VGG.yaml"
+MODEL:
+  BACKBONE:
+    NAME: "build_vgg_backbone_dynamic"
+  ROI_HEADS:
+    NUM_CLASSES: 8
+FEDSET:  
+  DYNAMIC: True 
+DATALOADER:
+  NUM_WORKERS: 2
+DATASETS:
+  TEST: ("VOC2007_bddval8",)
+UNSUPNET:
+  Trainer: "sourceonly"
+TEST:
+  EVAL_PERIOD: 400
+  EVALUATOR: "VOCeval"
+INPUT:
+  MIN_SIZE_TRAIN: (600, )
+  MIN_SIZE_TEST: 600
+  RANDOM_FLIP: "horizontal"
+OUTPUT_DIR: "./output/FedMAeval_bdd8/"

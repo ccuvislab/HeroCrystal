@@ -1,0 +1,61 @@
+_BASE_: "../Guassian-RCNN-VGG.yaml"
+MODEL:
+  BACKBONE:
+    NAME: "build_vgg_backbone_dynamic"
+    FREEZE_AT: 5
+  ROI_HEADS:
+    NUM_CLASSES: 8
+  TEACHER_TRAINER: "default"
+  STUDENT_TRAINER: "sourceonly"
+  TEACHER_PATH: ('output/avg02_skf2c_so_20240408/VOC2007_sim1_2/model_final.pth',
+                 'output/avg02_skf2c_so_20240408/VOC2007_kitti5_2/model_final.pth',
+                 'output/avg02_skf2c_so_20240408/VOC2007_foggytrain_2/model_final.pth')
+  STUDENT_PATH:  'output/avg02_skf2c_so_20240408/FedAvg_2.pth'
+FEDSET:
+  DYNAMIC: True
+  DYNAMIC_CLASS: (1,5,8)
+  TARGET_CLASS: 8
+SOLVER:
+  LR_SCHEDULER_NAME: "WarmupMultiStepLR"
+  STEPS: (4000,)
+  MAX_ITER: 4000
+  IMG_PER_BATCH_LABEL: 16
+  IMG_PER_BATCH_UNLABEL: 16
+  BASE_LR: 0.016
+  WARMUP_ITERS: 400
+  CHECKPOINT_PERIOD: 2000
+  REFERENCE_BATCH_SIZE: 16
+DATALOADER:
+  NUM_WORKERS: 2
+MOON:
+  CONTRASTIVE_Lcon_Enable: False
+  CONTRASTIVE_MU: 0.5
+  CONTRASTIVE_T: 0.5
+  WANDB_Enable: True
+  WANDB_Project_Name: "fin_skf2c_test"
+DATASETS:
+  CROSS_DATASET: True
+  TRAIN_LABEL: ("VOC2007_foggytrain",)
+  TRAIN_UNLABEL: ("VOC2007_citytrain",)
+  TEST: ("VOC2007_cityval",)
+UNSUPNET:
+  SOURCE_IDX: 2
+  Trainer: "FLtrainer"
+  TEACHER_UPDATE_ITER: 1
+  EMA_KEEP_RATE: 0.9996
+  SOURCE_LOSS_WEIGHT: 1.0
+  TARGET_UNSUP_LOSS_WEIGHT: 1.0
+  GUASSIAN: True
+  EFL: True
+  EFL_LAMBDA: [0.5,0.5]
+  TAU: [0.25,0.25]
+TEST:
+  EVAL_PERIOD: 100
+  EVALUATOR: "VOCeval"
+INPUT:
+  MIN_SIZE_TRAIN: (600, )
+  MIN_SIZE_TEST: 600
+  RANDOM_FLIP: "horizontal"
+OUTPUT_DIR: "./output/fin_skf2c_test/"
+
+
