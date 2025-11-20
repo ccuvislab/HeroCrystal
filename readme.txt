@@ -36,7 +36,9 @@ CUDA_VISIBLE_DEVICES=0,1 python train_net_unified.py --num-gpus 2 --config confi
 
 
 ==== 備註 ====
+
 *** config修改 ***
+
 ## 1. 跑多個訓練時，主要修改DATASET_LIST下使用的link，不用去改動DATASET_LIST的內容
 
 ## 2. 修改OUTPUT_DIR和WANDB_Project_Name(若有使用)
