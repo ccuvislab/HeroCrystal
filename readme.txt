@@ -2,6 +2,11 @@
 
 可以放在/work底下並在/FedCoin/Data下用link方式取用資料集，避免資料集太多導致空間不足
 
+config內使用的dataset參數可在pt/data/datasets/builtin.py內去做設定
+** ("VOC2007_citytrain", 'data/VOC2007_citytrain', "train", 8) **
+
+再將資料集link到各自對應的變數
+** ln -s /work/username/Cityscapes_dataset/VOC2007 /home/username/FedCoin/data/VOC2007_citytrain **
 
 #####################
 #     2GPU訓練      #
@@ -12,7 +17,7 @@
 ## 1. CK2B 訓練 client
 CUDA_VISIBLE_DEVICES=0,1 python train_net_FedAvg.py --num-gpus 2 --config configs/202405_multiclass/avg03_ck2b.yaml
 
-**執行之後，假設output資料夾 為 output/avg01_ck2b_so/， 則該資料夾中包含 (FedAvg_2.pth, VOC2007_citytrain_2/ , VOC2007_kitti5_2/ )
+** 執行之後，假設output資料夾 為 output/avg01_ck2b_so/， 則該資料夾中包含 (FedAvg_2.pth, VOC2007_citytrain_2/ , VOC2007_kitti5_2/ )
 
 ## 2. CK2B 訓練 server
 CUDA_VISIBLE_DEVICES=0,1 python train_net_multiTeacher.py --num-gpus 2 --config configs/202405_multiclass/mt03_avg_ck2b_moon.yaml
@@ -44,4 +49,8 @@ CUDA_VISIBLE_DEVICES=0,1 python train_net_unified.py --num-gpus 2 --config confi
 ## 2. 修改OUTPUT_DIR和WANDB_Project_Name(若有使用)
 
 ## 3. MultiTeacher訓練之config需多修改TEACHER_PATH和STUDENT_PATH
+
+*** conda 環境 ***
+
+## conda_enviroment.yaml
 
