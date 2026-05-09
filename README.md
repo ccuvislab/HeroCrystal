@@ -104,7 +104,7 @@ If you use this project in your research or wish to refer to the results publish
 
 ```bibtex
 @article{HeroCrystal2026,
-  author={Chen, Wei-Yu and Lu, Peggy Joy and Tseng, Vincent Shin-Mu},
+  author={Lu, Peggy Joy and Chen, Wei-Yu and Huang, Yao-Tsung and Tseng, Vincent Shin-Mu},
   title={HeroCrystal: Federated Learning for Object Detection},
   journal={Information Fusion},
   year={2026},
