@@ -20,7 +20,7 @@ python train_net.py \
       MODEL.WEIGHTS /path/to/model_weights
 ```
 ## Other ablations
-- Ablation study w/o anchor adapation, please run:
+- Ablation study w/o anchor adaptation, please run:
 ```bash
 CUDA_VISIBLE_DEVICES=0 \
 python train_net.py \
@@ -55,7 +55,7 @@ python train_net.py \
 ```
 
 ## Multi-GPU training
-We conduct all the exps in the paper with a single V100 GPU with 32G memory. Yet, we also test this code with 2 Gefore 3090 GPUs with 24G memory.
+We conduct all the exps in the paper with a single V100 GPU with 32G memory. Yet, we also test this code with 2 GeForce 3090 GPUs with 24G memory.
 ```
 CUDA_VISIBLE_DEVICES=0,1 \
 python train_net.py \

@@ -30,11 +30,11 @@ SPLITS = [
         ("VOC2007_sim1", 'data/sim', "train", 1),
     ]
 ```
-## CitysScape and FoggyCityscape
-1. register and download from [CitysScape](https://www.cityscapes-dataset.com/) to ```data/```
+## Cityscapes and Foggy Cityscapes
+1. register and download from [Cityscapes](https://www.cityscapes-dataset.com/) to ```data/```
 2. transform segmentation annotations to detection formats
    - For multi classes, ```python tools/trans_seg_to_det_multi.py```
-   - For single class, ```python tools/trans_seg_to_det_multi.py```
+   - For single class, ```python tools/trans_seg_to_det_single.py```
 3. check the annotations and make txt, ```python tools/make_VOC_txt.py```
 
 ## KITTI, Sim10k, BDD100k
