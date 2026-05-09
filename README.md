@@ -18,6 +18,9 @@ conda activate detectron2
 
 ## 2. Dataset Preparation
 
+> [!NOTE]
+> For more detailed instructions on downloading datasets (Cityscapes, KITTI, Sim10k, BDD100k) and transforming annotations, please refer to our **[Data Preparation Guide](docs/prepare_data.md)**.
+
 To avoid storage issues, it is recommended to store your datasets in a central directory and use symbolic links to link them to the project's `data/` folder.
 
 The dataset parameters used in the configuration files can be set in `pt/data/datasets/builtin.py`.
@@ -30,6 +33,9 @@ ln -s /path/to/Cityscapes_dataset/VOC2007 ./data/VOC2007_citytrain
 ```
 
 ## 3. Training Guide
+
+> [!NOTE]
+> For tutorials on reproducing main results, resuming training, and running ablations, please refer to our **[Getting Started Guide](docs/get_started.md)**.
 
 ### 2-GPU Training
 
