@@ -97,3 +97,25 @@ CUDA_VISIBLE_DEVICES=0 python train_net.py \
 - **Multiple training sessions:** You can create new config files and modify `DATASET_LIST` to link to other datasets.
 - **Output paths:** Modify `OUTPUT_DIR` and `WANDB_Project_Name` (if Weights & Biases is used) in the configuration files.
 - **Multi-Teacher training:** For Multi-Teacher configurations, ensure that both `TEACHER_PATH` and `STUDENT_PATH` are properly configured to the correct model weight paths.
+
+## 6. Citation
+
+If you use this project in your research or wish to refer to the results published in the paper, please consider citing our paper:
+
+```bibtex
+@article{HeroCrystal2026,
+  author={Chen, Wei-Yu and Lu, Peggy Joy and Tseng, Vincent Shin-Mu},
+  title={HeroCrystal: Federated Learning for Object Detection},
+  journal={Information Fusion},
+  year={2026},
+  doi={10.1016/j.inffus.2026.104413}
+}
+```
+
+## 7. License
+
+This project is released under the Apache 2.0 license. Other codes from open source repositories follow their original distributive licenses.
+
+## 8. Acknowledgement
+
+This project is built upon [Detectron2](https://github.com/facebookresearch/detectron2), Unbiased Teacher, and MOON. We would like to express our appreciation for their excellent works.
